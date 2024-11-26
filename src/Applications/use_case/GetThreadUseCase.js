@@ -1,3 +1,4 @@
+const GetAllComments = require('../../Domains/comments/entities/GetAllComments');
 const GetComment = require('../../Domains/comments/entities/GetComment');
 const GetReply = require('../../Domains/replies/entities/GetReply');
 
@@ -15,11 +16,14 @@ class GetThreadUseCase {
 
     await this._threadRepository.verifyAvailableThread(id);
     const thread = await this._threadRepository.getThreadsById(id);
-    const comments = await this._commentRepository.getCommentsByThreadId(id);
+    const rawComments = await this._commentRepository.getCommentsByThreadId(id);
+    const rawReplies = (await Promise.all(
+      rawComments.map(comment => this._replyRepository.getRepliesByCommentId(comment.id))
+    )).flat();
 
-    const commentsWithReplies = await this._mapCommentsWithReplies(comments);
+    const { comments } = new GetAllComments({ rawComments, rawReplies })
 
-    return { ...thread, comments: commentsWithReplies };
+    return { ...thread, comments };
   }
 
   _validatePayload(payload) {
@@ -32,28 +36,6 @@ class GetThreadUseCase {
     if (typeof id !== 'string') {
       throw new Error('GET_THREAD_USE_CASE.NOT_MEET_DATA_TYPE_SPECIFICATION');
     };
-  }
-
-  async _mapCommentsWithReplies(comments) {
-    return Promise.all(comments.map(async (comment) => {
-      const getReplies = await this._replyRepository.getRepliesByCommentId(comment.id)
-
-      const replies = getReplies.map(reply => {
-        const { id, content, date, username } = new GetReply(reply);
-
-        return { id, content, date, username };
-      });
-
-      const { id, username, date, content } = new GetComment(comment);
-
-      return {
-        id,
-        username,
-        date,
-        content,
-        replies,
-      };
-    }));
   }
 }
 
