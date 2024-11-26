@@ -6,7 +6,7 @@ describe('a GetReply entities', () => {
     const payload = {
       id: 'reply-123',
       content: 'sebuah comment reply',
-      date: '123',
+      date: new Date(),
       username: 'dicoding',
       isDelete: false,
     };
@@ -20,7 +20,7 @@ describe('a GetReply entities', () => {
     const payload = {
       id: 'reply-123',
       content: 'sebuah comment reply',
-      date: '123',
+      date: new Date(),
       username: 'dicoding',
       commentId: 123,
       isDelete: false,
@@ -35,7 +35,7 @@ describe('a GetReply entities', () => {
     const payload = {
       id: 'reply-123',
       content: 'sebuah comment reply',
-      date: '123',
+      date: new Date(),
       username: 'dicoding',
       commentId: 'comment-123',
       isDelete: false,
@@ -58,7 +58,7 @@ describe('a GetReply entities', () => {
     const payload = {
       id: 'reply-123',
       content: 'sebuah comment reply',
-      date: '123',
+      date: new Date(),
       username: 'dicoding',
       commentId: 'comment-123',
       isDelete: true,

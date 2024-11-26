@@ -6,7 +6,7 @@ describe('a GetComment entities', () => {
     const payload = {
       id: 'comment-123',
       username: 'dicoding',
-      date: '123',
+      date: new Date(),
       isDelete: false,
     };
 
@@ -19,7 +19,7 @@ describe('a GetComment entities', () => {
     const payload = {
       id: 'comment-123',
       username: 'dicoding',
-      date: '123',
+      date: new Date(),
       content: 'sebuah comment',
       isDelete: [true],
     };
@@ -33,7 +33,7 @@ describe('a GetComment entities', () => {
     const payload = {
       id: 'comment-123',
       username: 'dicoding',
-      date: '123',
+      date: new Date(),
       content: 'sebuah comment',
       isDelete: false,
     };
@@ -54,7 +54,7 @@ describe('a GetComment entities', () => {
     const payload = {
       id: 'comment-123',
       username: 'dicoding',
-      date: '123',
+      date: new Date(),
       content: 'sebuah comment',
       isDelete: true,
     };

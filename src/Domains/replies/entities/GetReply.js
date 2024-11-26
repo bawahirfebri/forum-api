@@ -20,6 +20,7 @@ class GetReply {
     if (
       typeof id !== 'string' ||
       typeof content !== 'string' ||
+      typeof date !== 'object' ||
       typeof username !== 'string' ||
       typeof commentId !== 'string' ||
       typeof isDelete !== 'boolean'

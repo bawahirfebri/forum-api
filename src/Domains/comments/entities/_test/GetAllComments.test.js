@@ -28,14 +28,14 @@ describe('a GetAllComments entities', () => {
       rawComments: [{
         id: 'comment-123',
         username: 'johndoe',
-        date: '123',
+        date: new Date(),
         content: 'sebuah comment',
         isDelete: false
       }],
       rawReplies: [{
         id: 'reply-123',
         content: '**balasan telah dihapus**',
-        date: '123',
+        date: new Date(),
         username: 'dicoding',
         commentId: 'comment-123',
         isDelete: true
@@ -48,16 +48,16 @@ describe('a GetAllComments entities', () => {
     // Assert
     const expectedComments = [
       {
-        id: 'comment-123',
-        username: 'johndoe',
-        date: '123',
-        content: 'sebuah comment',
+        id: payload.rawComments[0].id,
+        username: payload.rawComments[0].username,
+        date: payload.rawComments[0].date,
+        content: payload.rawComments[0].content,
         replies: [
           {
-            id: 'reply-123',
-            content: '**balasan telah dihapus**',
-            date: '123',
-            username: 'dicoding',
+            id: payload.rawReplies[0].id,
+            content: payload.rawReplies[0].content,
+            date: payload.rawReplies[0].date,
+            username: payload.rawReplies[0].username,
           },
         ],
       },

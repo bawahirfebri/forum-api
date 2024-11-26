@@ -37,11 +37,15 @@ describe('GetThreadUseCase', () => {
       id: 'thread-123',
     };
 
+    const mockThreadDate = new Date();
+    const mockCommentDate = new Date();
+    const mockReplyDate = new Date();
+
     const mockGetThread = new GetThread({
       id: 'thread-123',
       title: 'sebuah thread',
       body: 'sebuah thread body',
-      date: '123',
+      date: mockThreadDate,
       username: 'dicoding',
     });
 
@@ -49,7 +53,7 @@ describe('GetThreadUseCase', () => {
       new GetComment({
         id: 'comment-123',
         username: 'johndoe',
-        date: '123',
+        date: mockCommentDate,
         content: 'sebuah comment',
         isDelete: false,
       })
@@ -59,7 +63,7 @@ describe('GetThreadUseCase', () => {
       new GetReply({
         id: 'reply-123',
         content: 'sebuah comment reply dihapus',
-        date: '123',
+        date: mockReplyDate,
         username: 'dicoding',
         commentId: 'comment-123',
         isDelete: true
@@ -92,19 +96,19 @@ describe('GetThreadUseCase', () => {
       id: 'thread-123',
       title: 'sebuah thread',
       body: 'sebuah thread body',
-      date: '123',
+      date: mockThreadDate,
       username: 'dicoding',
       comments: [
         {
           id: 'comment-123',
           username: 'johndoe',
-          date: '123',
+          date: mockCommentDate,
           content: 'sebuah comment',
           replies: [
             {
               id: 'reply-123',
               content: '**balasan telah dihapus**',
-              date: '123',
+              date: mockReplyDate,
               username: 'dicoding',
             },
           ],

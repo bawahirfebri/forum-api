@@ -7,7 +7,7 @@ describe('a GetThread entities', () => {
       id: 'thread-123',
       title: 'sebuah thread',
       body: 'sebuah thread body',
-      date: '123'
+      date: new Date(),
     };
 
     // Action and Assert
@@ -20,7 +20,7 @@ describe('a GetThread entities', () => {
       id: 'thread-123',
       title: 'sebuah thread',
       body: 'sebuah thread body',
-      date: '123',
+      date: new Date(),
       username: ['dicoding'],
     };
 
@@ -34,7 +34,7 @@ describe('a GetThread entities', () => {
       id: 'thread-123',
       title: 'sebuah thread',
       body: 'sebuah thread body',
-      date: '123',
+      date: new Date(),
       username: 'dicoding',
     };
 
