@@ -70,8 +70,8 @@ describe('CommentRepositoryPostgres', () => {
   describe('getCommentsByThreadId function', () => {
     it('should return comments correctly', async () => {
       // Arrange
-      await CommentsTableTestHelper.addComment({ 
-        id:'comment-123',
+      await CommentsTableTestHelper.addComment({
+        id: 'comment-123',
         content: 'sebuah content',
         username: 'dicoding',
         threadId: 'thread-123',
@@ -90,7 +90,7 @@ describe('CommentRepositoryPostgres', () => {
           date: expectedCommentDate,
           content: 'sebuah content',
           isDelete: false,
-        })
+        }),
       ];
       expect(actualResult).toEqual(expectedResult);
     });

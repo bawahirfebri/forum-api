@@ -1,12 +1,12 @@
-const GetAllComments = require("../GetAllComments")
+const GetAllComments = require('../GetAllComments');
 
 describe('a GetAllComments entities', () => {
   it('should throw error when payload did not contain needed property', () => {
     // Arrange
     const payload = {
       rawComments: [],
-    }
-    
+    };
+
     // Action and Assert
     expect(() => new GetAllComments(payload)).toThrowError('GET_ALL_COMMENTS.NOT_CONTAIN_NEEDED_PROPERTY');
   });
@@ -15,12 +15,12 @@ describe('a GetAllComments entities', () => {
     // Arrange
     const payload = {
       rawComments: [],
-      rawReplies: true
-    }
-    
+      rawReplies: true,
+    };
+
     // Action and Assert
     expect(() => new GetAllComments(payload)).toThrowError('GET_ALL_COMMENTS.NOT_MEET_DATA_TYPE_SPECIFICATION');
-  })
+  });
 
   it('should get all comments object correctly', () => {
     // Arrange
@@ -30,7 +30,7 @@ describe('a GetAllComments entities', () => {
         username: 'johndoe',
         date: new Date(),
         content: 'sebuah comment',
-        isDelete: false
+        isDelete: false,
       }],
       rawReplies: [{
         id: 'reply-123',
@@ -38,7 +38,7 @@ describe('a GetAllComments entities', () => {
         date: new Date(),
         username: 'dicoding',
         commentId: 'comment-123',
-        isDelete: true
+        isDelete: true,
       }],
     };
 
@@ -63,5 +63,5 @@ describe('a GetAllComments entities', () => {
       },
     ];
     expect(comments).toEqual(expectedComments);
-  })
-})
+  });
+});

@@ -5,7 +5,7 @@ const UserRepository = require('../../Domains/users/UserRepository');
 class UserRepositoryPostgres extends UserRepository {
   constructor(pool, idGenerator) {
     super();
-    
+
     this._pool = pool;
     this._idGenerator = idGenerator;
   }

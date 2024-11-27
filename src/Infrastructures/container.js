@@ -1,4 +1,3 @@
-/* istanbul ignore file */
 const { createContainer } = require('instances-container');
 
 // external agency
@@ -244,7 +243,7 @@ container.register([
       dependencies: [
         {
           name: 'commentRepository',
-          internal: CommentRepository.name
+          internal: CommentRepository.name,
         },
         {
           name: 'threadRepository',

@@ -42,7 +42,9 @@ describe('a GetReply entities', () => {
     };
 
     // Action
-    const { id, content, date, username, commentId, isDelete } = new GetReply(payload);
+    const {
+      id, content, date, username, commentId, isDelete,
+    } = new GetReply(payload);
 
     // Assert
     expect(id).toEqual(payload.id);
@@ -65,7 +67,9 @@ describe('a GetReply entities', () => {
     };
 
     // Action
-    const { id, content, date, username, commentId, isDelete } = new GetReply(payload);
+    const {
+      id, content, date, username, commentId, isDelete,
+    } = new GetReply(payload);
 
     // Assert
     expect(id).toEqual(payload.id);

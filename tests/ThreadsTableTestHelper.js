@@ -5,7 +5,7 @@ const ThreadsTableTestHelper = {
     id = 'thread-123',
     title = 'sebuah thread',
     body = 'sebuah thread body',
-    owner = 'user-123'
+    owner = 'user-123',
   }) {
     const query = {
       text: 'INSERT INTO threads VALUES($1, $2, $3, $4)',
@@ -14,7 +14,7 @@ const ThreadsTableTestHelper = {
 
     await pool.query(query);
   },
-  
+
   async findThreadById(id) {
     const query = {
       text: 'SELECT * FROM threads WHERE id = $1',

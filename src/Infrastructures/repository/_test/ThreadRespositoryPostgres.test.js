@@ -68,7 +68,7 @@ describe('ThreadRepositoryPostgres', () => {
 
       // Action and Assert
       await expect(threadRepositoryPostgres.getThreadsById('thread-123')).rejects.toThrowError(NotFoundError);
-    })
+    });
 
     it('should return get thread correctly', async () => {
       // Arrange
@@ -77,9 +77,9 @@ describe('ThreadRepositoryPostgres', () => {
 
       // Action
       const actualResult = await threadRepositoryPostgres.getThreadsById('thread-123');
-      
+
       // Assert
-      const expectedThreadDate = await ThreadsTableTestHelper.findDateById('thread-123')
+      const expectedThreadDate = await ThreadsTableTestHelper.findDateById('thread-123');
       const expectedResult = {
         id: 'thread-123',
         title: 'sebuah thread',

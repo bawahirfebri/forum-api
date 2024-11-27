@@ -56,7 +56,7 @@ describe('GetThreadUseCase', () => {
         date: mockCommentDate,
         content: 'sebuah comment',
         isDelete: false,
-      })
+      }),
     ];
 
     const mockGetReplies = [
@@ -66,8 +66,8 @@ describe('GetThreadUseCase', () => {
         date: mockReplyDate,
         username: 'dicoding',
         commentId: 'comment-123',
-        isDelete: true
-      })
+        isDelete: true,
+      }),
     ];
 
     /** creating dependency of use case */

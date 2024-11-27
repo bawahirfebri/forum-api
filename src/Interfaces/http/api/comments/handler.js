@@ -31,12 +31,12 @@ class CommentsHandler {
     const { commentId: id, threadId } = request.params;
     const { id: owner } = request.auth.credentials;
     await deleteCommentUseCase.execute({ id, threadId, owner });
-    
+
     const response = h.response({
-      status: 'success'
+      status: 'success',
     });
     response.code(200);
-  
+
     return response;
   }
 }

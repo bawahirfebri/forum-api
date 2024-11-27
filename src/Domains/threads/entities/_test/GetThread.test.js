@@ -11,7 +11,7 @@ describe('a GetThread entities', () => {
     };
 
     // Action and Assert
-    expect(() => new GetThread(payload)).toThrowError('GET_THREAD.NOT_CONTAIN_NEEDED_PROPERTY')
+    expect(() => new GetThread(payload)).toThrowError('GET_THREAD.NOT_CONTAIN_NEEDED_PROPERTY');
   });
 
   it('should throw error when did not meet data type specification', () => {
@@ -25,7 +25,7 @@ describe('a GetThread entities', () => {
     };
 
     // Action and Assert
-    expect(() => new GetThread(payload)).toThrowError('GET_THREAD.NOT_MEET_DATA_TYPE_SPECIFICATION')
+    expect(() => new GetThread(payload)).toThrowError('GET_THREAD.NOT_MEET_DATA_TYPE_SPECIFICATION');
   });
 
   it('should get Thread object correctly', () => {
@@ -39,7 +39,9 @@ describe('a GetThread entities', () => {
     };
 
     // Action
-    const { id, title, body, date, username } = new GetThread(payload);
+    const {
+      id, title, body, date, username,
+    } = new GetThread(payload);
 
     // Assert
     expect(id).toEqual(payload.id);

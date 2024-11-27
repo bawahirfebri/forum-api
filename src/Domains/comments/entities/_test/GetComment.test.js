@@ -39,7 +39,9 @@ describe('a GetComment entities', () => {
     };
 
     // Action
-    const { id, username, date, content, isDelete } = new GetComment(payload);
+    const {
+      id, username, date, content, isDelete,
+    } = new GetComment(payload);
 
     // Assert
     expect(id).toEqual(payload.id);
@@ -60,7 +62,9 @@ describe('a GetComment entities', () => {
     };
 
     // Action
-    const { id, username, date, content, isDelete } = new GetComment(payload);
+    const {
+      id, username, date, content, isDelete,
+    } = new GetComment(payload);
 
     // Assert
     expect(id).toEqual(payload.id);

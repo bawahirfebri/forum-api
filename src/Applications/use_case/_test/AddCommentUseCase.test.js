@@ -12,7 +12,6 @@ describe('AddCommentUseCase', () => {
       threadId: 'thread-123',
       owner: 'user-123',
     };
-    
 
     const mockAddedComment = new AddedComment({
       id: 'comment-123',

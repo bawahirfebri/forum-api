@@ -82,14 +82,14 @@ describe('ReplyRepositoryPostgres', () => {
       // Assert
       const expectedReplyDate = await RepliesTableTestHelper.findDateById('reply-123');
       const expectedResult = [
-          new GetReply({
-            id: 'reply-123',
-            content: 'sebuah comment reply',
-            date: expectedReplyDate,
-            username: 'dicoding',
-            commentId: 'comment-123',
-            isDelete: false,
-        })
+        new GetReply({
+          id: 'reply-123',
+          content: 'sebuah comment reply',
+          date: expectedReplyDate,
+          username: 'dicoding',
+          commentId: 'comment-123',
+          isDelete: false,
+        }),
       ];
       expect(actualResult).toEqual(expectedResult);
     });
@@ -110,7 +110,6 @@ describe('ReplyRepositoryPostgres', () => {
       expect(reply[0].is_delete).toEqual(true);
     });
   });
-
 
   describe('verifyAvailableReply function', () => {
     it('should throw NotFoundError when reply not available', async () => {

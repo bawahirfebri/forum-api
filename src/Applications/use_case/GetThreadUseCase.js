@@ -1,6 +1,4 @@
 const GetAllComments = require('../../Domains/comments/entities/GetAllComments');
-const GetComment = require('../../Domains/comments/entities/GetComment');
-const GetReply = require('../../Domains/replies/entities/GetReply');
 
 class GetThreadUseCase {
   constructor({ threadRepository, commentRepository, replyRepository }) {
@@ -18,10 +16,10 @@ class GetThreadUseCase {
     const thread = await this._threadRepository.getThreadsById(id);
     const rawComments = await this._commentRepository.getCommentsByThreadId(id);
     const rawReplies = (await Promise.all(
-      rawComments.map(comment => this._replyRepository.getRepliesByCommentId(comment.id))
+      rawComments.map((comment) => this._replyRepository.getRepliesByCommentId(comment.id)),
     )).flat();
 
-    const { comments } = new GetAllComments({ rawComments, rawReplies })
+    const { comments } = new GetAllComments({ rawComments, rawReplies });
 
     return { ...thread, comments };
   }
@@ -31,11 +29,11 @@ class GetThreadUseCase {
 
     if (!id) {
       throw new Error('GET_THREAD_USE_CASE.NOT_CONTAIN_NEEDED_PROPERTY');
-    };
+    }
 
     if (typeof id !== 'string') {
       throw new Error('GET_THREAD_USE_CASE.NOT_MEET_DATA_TYPE_SPECIFICATION');
-    };
+    }
   }
 }
 

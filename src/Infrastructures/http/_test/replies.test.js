@@ -39,7 +39,8 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -69,7 +70,8 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -101,7 +103,8 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -133,7 +136,8 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -164,7 +168,8 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -195,7 +200,8 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -219,14 +225,15 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
     it('should response 200 when success deleting reply', async () => {
       // Arrange
       await RepliesTableTestHelper.addReply({ id: 'reply-123', threadId: 'thread-123', commentId: 'comment-123' });
-      
+
       const mockRegisteredUser = new RegisteredUser({
         id: 'user-123',
         username: 'dicoding',
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -247,15 +254,18 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
     it('should response 403 when deleting reply not owner', async () => {
       // Arrange
       await UsersTableTestHelper.addUser({ id: 'user-321', username: 'johndoe', fullname: 'John Doe' });
-      await RepliesTableTestHelper.addReply({ id: 'reply-123', threadId: 'thread-123', commentId: 'comment-123', owner: 'user-123' });
-      
+      await RepliesTableTestHelper.addReply({
+        id: 'reply-123', threadId: 'thread-123', commentId: 'comment-123', owner: 'user-123',
+      });
+
       const mockRegisteredUser = new RegisteredUser({
         id: 'user-321',
         username: 'johndoe',
         fullname: 'John Doe',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -276,14 +286,15 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
     it('should response 404 when deleting reply from unavailable thread', async () => {
       // Arrange
       await RepliesTableTestHelper.addReply({ id: 'reply-123', threadId: 'thread-123', commentId: 'comment-123' });
-      
+
       const mockRegisteredUser = new RegisteredUser({
         id: 'user-123',
         username: 'dicoding',
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -304,14 +315,15 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
     it('should response 404 when deleting reply from unavailable comment', async () => {
       // Arrange
       await RepliesTableTestHelper.addReply({ id: 'reply-123', threadId: 'thread-123', commentId: 'comment-123' });
-      
+
       const mockRegisteredUser = new RegisteredUser({
         id: 'user-123',
         username: 'dicoding',
         fullname: 'Dicoding Indonesia',
       });
-      
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -332,14 +344,15 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
     it('should response 404 when deleting reply from unavailable reply', async () => {
       // Arrange
       await RepliesTableTestHelper.addReply({ id: 'reply-123', threadId: 'thread-123', commentId: 'comment-123' });
-      
+
       const mockRegisteredUser = new RegisteredUser({
         id: 'user-123',
         username: 'dicoding',
         fullname: 'Dicoding Indonesia',
       });
-      
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action

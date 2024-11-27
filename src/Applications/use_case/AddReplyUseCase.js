@@ -5,7 +5,6 @@ class AddReplyUseCase {
     this._replyRepository = replyRepository;
     this._commentRepository = commentRepository;
     this._threadRepository = threadRepository;
-
   }
 
   async execute(useCasePayload) {

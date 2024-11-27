@@ -13,8 +13,10 @@ class ReplyRepositoryPostgres extends ReplyRepository {
   }
 
   async addReply(reply) {
-    const { content, owner, commentId, threadId } = reply;
-    const id  = `reply-${this._idGenerator()}`;
+    const {
+      content, owner, commentId, threadId,
+    } = reply;
+    const id = `reply-${this._idGenerator()}`;
 
     const query = {
       text: 'INSERT INTO replies VALUES($1, $2, $3, $4) RETURNING id, content, owner',
@@ -33,13 +35,13 @@ class ReplyRepositoryPostgres extends ReplyRepository {
       LEFT JOIN users ON users.id = replies.owner
       WHERE replies.comment_id = $1
       ORDER BY replies.is_delete DESC, replies.date ASC`,
-      values: [commentId]
+      values: [commentId],
     };
 
-    const result =  await this._pool.query(query);
+    const result = await this._pool.query(query);
 
     return result.rows.map(({ comment_id, is_delete, ...reply }) => (new GetReply({
-      ...reply, commentId: comment_id, isDelete: is_delete
+      ...reply, commentId: comment_id, isDelete: is_delete,
     })));
   }
 
@@ -62,7 +64,7 @@ class ReplyRepositoryPostgres extends ReplyRepository {
 
     if (!result.rowCount) {
       throw new NotFoundError('reply tidak ditemukan');
-    };
+    }
   }
 
   async verifyReplyOwner(id, owner) {

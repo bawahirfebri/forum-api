@@ -17,7 +17,7 @@ const createServer = async (container) => {
   await server.register([
     {
       plugin: Jwt,
-    }
+    },
   ]);
 
   server.auth.strategy('forumapi_jwt', 'jwt', {

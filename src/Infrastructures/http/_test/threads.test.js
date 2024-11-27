@@ -36,7 +36,8 @@ describe('/threads endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -68,7 +69,8 @@ describe('/threads endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -101,7 +103,8 @@ describe('/threads endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -125,39 +128,39 @@ describe('/threads endpoint', () => {
   describe('when GET /threads/{threadId}', () => {
     it('should response 200 and return thread with comment', async () => {
       // Arrange
-      await UsersTableTestHelper.addUser({ 
-        id: 'user-321', 
-        username: 'johndoe', 
+      await UsersTableTestHelper.addUser({
+        id: 'user-321',
+        username: 'johndoe',
         fullname: 'John Doe',
-      })
-      await ThreadsTableTestHelper.addThread({ 
-        id: 'thread-123', 
+      });
+      await ThreadsTableTestHelper.addThread({
+        id: 'thread-123',
         owner: 'user-123',
       });
-      await CommentsTableTestHelper.addComment({ 
-        id: 'comment-123', 
+      await CommentsTableTestHelper.addComment({
+        id: 'comment-123',
         content: 'sebuah comment dihapus',
-        threadId: 'thread-123', 
+        threadId: 'thread-123',
         owner: 'user-321',
       });
       await CommentsTableTestHelper.deleteCommentById('comment-123');
-      await RepliesTableTestHelper.addReply({ 
-        id: 'reply-123', 
-        commentId: 'comment-123', 
-        threadId: 'thread-123', 
+      await RepliesTableTestHelper.addReply({
+        id: 'reply-123',
+        commentId: 'comment-123',
+        threadId: 'thread-123',
         owner: 'user-123',
       });
-      await CommentsTableTestHelper.addComment({ 
-        id: 'comment-321', 
-        threadId: 'thread-123', 
+      await CommentsTableTestHelper.addComment({
+        id: 'comment-321',
+        threadId: 'thread-123',
         owner: 'user-123',
       });
-      await RepliesTableTestHelper.addReply({ 
+      await RepliesTableTestHelper.addReply({
         id: 'reply-321',
         content: 'sebuah comment reply dihapus',
-        commentId: 'comment-321', 
-        threadId: 'thread-123', 
-        owner: 'user-321' ,
+        commentId: 'comment-321',
+        threadId: 'thread-123',
+        owner: 'user-321',
       });
       await RepliesTableTestHelper.deleteReplyById('reply-321');
 

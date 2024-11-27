@@ -37,8 +37,8 @@ class CommentRepositoryPostgres extends CommentRepository {
 
     const result = await this._pool.query(query);
 
-    return result.rows.map(({is_delete, ...comment}) => (new GetComment({
-      ...comment, isDelete: is_delete
+    return result.rows.map(({ is_delete, ...comment }) => (new GetComment({
+      ...comment, isDelete: is_delete,
     })));
   }
 
@@ -61,7 +61,7 @@ class CommentRepositoryPostgres extends CommentRepository {
 
     if (!result.rowCount) {
       throw new NotFoundError('comment tidak ditemukan');
-    };
+    }
   }
 
   async verifyCommentOwner(id, owner) {

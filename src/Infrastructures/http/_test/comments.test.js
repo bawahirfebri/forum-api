@@ -36,7 +36,8 @@ describe('/threads/{threadId}/comments endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -66,7 +67,8 @@ describe('/threads/{threadId}/comments endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -98,7 +100,8 @@ describe('/threads/{threadId}/comments endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -130,7 +133,8 @@ describe('/threads/{threadId}/comments endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -161,7 +165,8 @@ describe('/threads/{threadId}/comments endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -190,7 +195,8 @@ describe('/threads/{threadId}/comments endpoint', () => {
         fullname: 'John Doe',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -218,7 +224,8 @@ describe('/threads/{threadId}/comments endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action
@@ -246,7 +253,8 @@ describe('/threads/{threadId}/comments endpoint', () => {
         fullname: 'Dicoding Indonesia',
       });
 
-      const accessToken = await container.getInstance(AuthenticationTokenManager.name).createAccessToken(mockRegisteredUser);
+      const accessToken = await container.getInstance(AuthenticationTokenManager.name)
+        .createAccessToken(mockRegisteredUser);
       const server = await createServer(container);
 
       // Action

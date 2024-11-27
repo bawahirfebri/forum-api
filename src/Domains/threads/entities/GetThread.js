@@ -3,11 +3,7 @@ class GetThread {
     this._validatePayload(payload);
 
     const {
-      id,
-      title,
-      body,
-      date,
-      username
+      id, title, body, date, username,
     } = payload;
 
     this.id = id;
@@ -17,20 +13,18 @@ class GetThread {
     this.username = username;
   }
 
-  _validatePayload({ id, title, body, date, username }) {
+  _validatePayload({
+    id, title, body, date, username,
+  }) {
     if (!id || !title || !body || date === undefined || !username) {
       throw new Error('GET_THREAD.NOT_CONTAIN_NEEDED_PROPERTY');
     }
 
     if (
-      typeof id !== 'string' || 
-      typeof title !== 'string' ||
-      typeof body !== 'string' ||
-      typeof date !== 'object' ||
-      typeof username !== 'string'
+      typeof id !== 'string' || typeof title !== 'string' || typeof body !== 'string' || typeof date !== 'object' || typeof username !== 'string'
     ) {
       throw new Error('GET_THREAD.NOT_MEET_DATA_TYPE_SPECIFICATION');
-    } 
+    }
   }
 }
 
