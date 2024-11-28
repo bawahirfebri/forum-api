@@ -61,7 +61,7 @@ describe('HTTP server', () => {
   });
 
   describe('when GET /forum', () => {
-    it('should return 200 and hello world', async () => {
+    it('should return 200 and forum api', async () => {
       // Arrange
       const server = await createServer(container);
 
