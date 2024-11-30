@@ -122,7 +122,7 @@ describe('ReplyRepositoryPostgres', () => {
 
     it('should not throw NotFoundError when reply available', async () => {
       // Arrange
-      await RepliesTableTestHelper.addReply({});
+      await RepliesTableTestHelper.addReply({ id: 'reply-123' });
       const replyRepositoryPostgres = new ReplyRepositoryPostgres(pool, {});
 
       // Action and Assert

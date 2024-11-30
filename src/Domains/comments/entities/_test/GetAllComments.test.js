@@ -31,6 +31,7 @@ describe('a GetAllComments entities', () => {
         date: new Date(),
         content: 'sebuah comment',
         isDelete: false,
+        likeCount: 0,
       }],
       rawReplies: [{
         id: 'reply-123',
@@ -52,6 +53,7 @@ describe('a GetAllComments entities', () => {
         username: payload.rawComments[0].username,
         date: payload.rawComments[0].date,
         content: payload.rawComments[0].content,
+        likeCount: payload.rawComments[0].likeCount,
         replies: [
           {
             id: payload.rawReplies[0].id,

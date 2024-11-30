@@ -42,12 +42,7 @@ describe('AddReplyUseCase', () => {
     const addedReply = await getReplyUseCase.execute(useCasePayload);
 
     // Asseert
-    expect(addedReply).toStrictEqual(new AddedReply({
-      id: 'reply-123',
-      content: useCasePayload.content,
-      owner: useCasePayload.owner,
-    }));
-
+    expect(addedReply).toStrictEqual(mockAddedReply);
     expect(mockThreadRepository.verifyAvailableThread).toBeCalledWith(useCasePayload.threadId);
     expect(mockCommentRepository.verifyAvailableComment).toBeCalledWith(useCasePayload.commentId);
     expect(mockReplyRepository.addReply).toBeCalledWith(new AddReply({

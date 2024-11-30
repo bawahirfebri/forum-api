@@ -56,6 +56,7 @@ describe('GetThreadUseCase', () => {
         date: mockCommentDate,
         content: 'sebuah comment',
         isDelete: false,
+        likeCount: 0,
       }),
     ];
 
@@ -104,6 +105,7 @@ describe('GetThreadUseCase', () => {
           username: 'johndoe',
           date: mockCommentDate,
           content: 'sebuah comment',
+          likeCount: 0,
           replies: [
             {
               id: 'reply-123',

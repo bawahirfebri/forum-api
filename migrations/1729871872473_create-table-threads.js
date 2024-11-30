@@ -19,7 +19,7 @@ exports.up = (pgm) => {
     date: {
       type: 'TIMESTAMP',
       default: 'NOW()',
-    }
+    },
   });
 
   pgm.addConstraint('threads', 'fk_threads.owner_users.id', 'FOREIGN KEY(owner) REFERENCES users(id) ON DELETE CASCADE');

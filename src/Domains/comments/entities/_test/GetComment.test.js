@@ -8,6 +8,7 @@ describe('a GetComment entities', () => {
       username: 'dicoding',
       date: new Date(),
       isDelete: false,
+      likeCount: 0,
     };
 
     // Action and Assert
@@ -22,6 +23,7 @@ describe('a GetComment entities', () => {
       date: new Date(),
       content: 'sebuah comment',
       isDelete: [true],
+      likeCount: 0,
     };
 
     // Action and Assert
@@ -36,11 +38,12 @@ describe('a GetComment entities', () => {
       date: new Date(),
       content: 'sebuah comment',
       isDelete: false,
+      likeCount: 0,
     };
 
     // Action
     const {
-      id, username, date, content, isDelete,
+      id, username, date, content, isDelete, likeCount,
     } = new GetComment(payload);
 
     // Assert
@@ -49,6 +52,7 @@ describe('a GetComment entities', () => {
     expect(date).toEqual(payload.date);
     expect(content).toEqual(payload.content);
     expect(isDelete).toEqual(payload.isDelete);
+    expect(likeCount).toEqual(payload.likeCount);
   });
 
   it('should get comment object correctly when isDelete is true', async () => {
@@ -59,11 +63,12 @@ describe('a GetComment entities', () => {
       date: new Date(),
       content: 'sebuah comment',
       isDelete: true,
+      likeCount: 0,
     };
 
     // Action
     const {
-      id, username, date, content, isDelete,
+      id, username, date, content, isDelete, likeCount,
     } = new GetComment(payload);
 
     // Assert
@@ -72,5 +77,6 @@ describe('a GetComment entities', () => {
     expect(date).toEqual(payload.date);
     expect(content).toEqual('**komentar telah dihapus**');
     expect(isDelete).toEqual(payload.isDelete);
+    expect(likeCount).toEqual(payload.likeCount);
   });
 });
