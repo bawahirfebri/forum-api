@@ -23,7 +23,7 @@ exports.up = (pgm) => {
     is_delete: {
       type: 'BOOLEAN',
       default: 'FALSE',
-    }
+    },
   });
 
   pgm.addConstraint('comments', 'fk_comments.owner_users.id', 'FOREIGN KEY(owner) REFERENCES users(id) ON DELETE CASCADE');

@@ -15,10 +15,11 @@ class CommentRepositoryPostgres extends CommentRepository {
   async addComment(comment) {
     const { content, owner, threadId } = comment;
     const id = `comment-${this._idGenerator()}`;
+    const date = new Date();
 
     const query = {
-      text: 'INSERT INTO comments VALUES($1, $2, $3, $4) RETURNING id, content, owner',
-      values: [id, content, owner, threadId],
+      text: 'INSERT INTO comments VALUES($1, $2, $3, $4, $5) RETURNING id, content, owner',
+      values: [id, content, owner, threadId, date],
     };
 
     const result = await this._pool.query(query);
@@ -28,17 +29,30 @@ class CommentRepositoryPostgres extends CommentRepository {
 
   async getCommentsByThreadId(thread) {
     const query = {
-      text: `SELECT comments.id, comments.content, comments.date, comments.is_delete, users.username
-      FROM comments
-      LEFT JOIN users ON users.id = comments.owner
-      WHERE comments.thread_id = $1`,
+      text: `
+        SELECT 
+          comments.id,
+          comments.content,
+          comments.date,
+          comments.is_delete,
+          users.username,
+          COUNT(likes.comment_id) AS like_count
+        FROM comments
+        LEFT JOIN users ON users.id = comments.owner
+        LEFT JOIN likes ON likes.comment_id = comments.id
+        WHERE comments.thread_id = $1
+        GROUP BY comments.id, users.username
+        ORDER BY comments.date ASC
+      `,
       values: [thread],
     };
 
     const result = await this._pool.query(query);
 
-    return result.rows.map(({ is_delete, ...comment }) => (new GetComment({
-      ...comment, isDelete: is_delete,
+    return result.rows.map(({ is_delete, like_count, ...comment }) => (new GetComment({
+      ...comment,
+      isDelete: is_delete,
+      likeCount: parseInt(like_count, 10),
     })));
   }
 

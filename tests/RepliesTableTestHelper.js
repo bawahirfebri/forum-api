@@ -48,6 +48,6 @@ const RepliesTableTestHelper = {
   async cleanTable() {
     await pool.query('DELETE FROM replies WHERE 1=1');
   },
-}
+};
 
 module.exports = RepliesTableTestHelper;

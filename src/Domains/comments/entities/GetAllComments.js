@@ -35,11 +35,11 @@ class GetAllComments {
         });
 
       const {
-        id, username, date, content,
+        id, username, date, content, likeCount,
       } = new GetComment(comment);
 
       return {
-        id, username, date, content, replies: relatedReplies,
+        id, username, date, content, likeCount, replies: relatedReplies,
       };
     });
   }

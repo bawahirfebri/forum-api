@@ -22,10 +22,7 @@ class DeleteReplyUseCase {
 
   _validatePayload(payload) {
     const {
-      id,
-      commentId,
-      threadId,
-      owner,
+      id, commentId, threadId, owner,
     } = payload;
 
     if (!id || !owner || !threadId || !commentId) {

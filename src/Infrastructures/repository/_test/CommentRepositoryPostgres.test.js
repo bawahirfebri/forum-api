@@ -90,6 +90,7 @@ describe('CommentRepositoryPostgres', () => {
           date: expectedCommentDate,
           content: 'sebuah content',
           isDelete: false,
+          likeCount: 0,
         }),
       ];
       expect(actualResult).toEqual(expectedResult);
